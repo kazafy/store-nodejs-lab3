@@ -1,0 +1,41 @@
+<%include ../layout/header %>
+    </ul>
+
+            <!--center -->
+            <div id="center" class="row">
+
+      <% products.forEach(function(product){%>
+
+                    <!--card-->
+                    <div class="col s12 m6 l4">
+                    <div class="card horizontal hoverable">
+                        <div class="card-image">
+                            <img class="img" src="/upload/<%=product.img%>">
+                        </div>
+                        <div  class="card-stacked">
+                            <div class="card-content">
+                                        <p class="truncate teal-text"> <%=product.name%></p>
+                                        <p class="truncate teal-text"> <b><%=product.price%></b></p>
+                                        <p class="truncate teal-text"> <%=product.desc%></p>
+                            </div>
+                            <div class="card-action">
+                                    <% if(user && product.userid ==user._id ){ %>
+                                    <a href='/product/edit/<%=product.id%>' class="right  btn-block waves-effect waves-light "><i class="material-icons">edit</i></a>
+                                    <a href='/product/delete/<%=product.id%>' class="right btn-block  waves-effect waves-light "><i class="material-icons">delete</i></a>
+                                    <% } %>
+
+
+                            </div>
+                        </div>
+
+ 
+                    </div>
+                    </div>
+                <%});%>
+            </div>
+
+
+
+
+
+<%include ../layout/footer %>

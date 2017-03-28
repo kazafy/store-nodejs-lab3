@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" [%#
+    %]"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
+
+    <!--     Compiled and minified JavaScript-->
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
+    <!--<link href="[%c.uri_for('/static/css/icon.css?family=Material+Icons') %]" href="/css/icon.css?family=Material+Icons" rel="stylesheet">-->
+    <style>
+        /* label focus color */
+        .input-field input:focus + label {
+            color: crimson !important;
+        }
+        /* label underline focus color */
+        .row .input-field input:focus {
+            border-bottom: 1px solid crimson !important;
+            box-shadow: 0 1px 0 0 crimson !important
+
+        }
+        .row .input-field input:focus + label + i {
+            color: crimson !important;
+        }
+
+        iframe:focus {
+    outline: none;
+}
+iframe {
+
+height:500;
+
+
+
+}
+    </style>
+
+</head>
+
+<body> 
+
+<div class="navbar-fixed">
+    <nav>
+        <div class="nav-wrapper black">
+            <a href="/product" class="brand-logo">ITIans</a>
+            <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+
+                <ul class="right hide-on-med-and-down">
+                <li><a href="/product">Home</a></li>                
+                <% if(user) { %> 
+                <li><a href="/product/myproducts"> My Product </a></li>
+                <li><img style="margin:15 0 0 0 ;width:50px;height:40px;" src="/upload/<%=user.avatar%>" alt="" class="circle" ></li>
+                <li><a href="/user/logout">logout</a></li>
+                <% } else {  %>                                
+                <li><a href="/user/login">login</a></li>                
+                <li><a href="/user/register">register</a></li>                
+                <% } %>
+                </ul>
+
+
+            <ul  class="side-nav" id="mobile-demo">
+                <li><a href="/product">Home</a></li>                
+                <% if(user) { %> 
+                <li><a href="/product/myproducts"> My Product </a></li>
+                <li><a href="/user/logout">logout</a></li>
+                <% } else {  %>                                
+                <li><a href="/user/login">login</a></li>                
+                <li><a href="/user/register">register</a></li>                
+                <% } %>
+              
+            </ul>
+            <div class="right hide-on-med-and-down">
+                <form method="POST" action="/product/search">
+                    <div class="input-field">
+                        <input id="search" name="search" type="search" required>
+                        <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                        <i class="material-icons">close</i>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </nav>
+</div>
+
+
+<div id="bodyblock" class="container" >
